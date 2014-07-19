@@ -16,9 +16,9 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Render;
+namespace Diff\Render;
 
-use cogpowered\FineDiff\Parser\OpcodesInterface;
+use Diff\Parser\OpcodesInterface;
 
 abstract class Renderer implements RendererInterface
 {

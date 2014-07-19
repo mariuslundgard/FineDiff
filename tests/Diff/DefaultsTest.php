@@ -3,7 +3,7 @@
 namespace FineDiffTests\Diff;
 
 use PHPUnit_Framework_TestCase;
-use cogpowered\FineDiff\Diff;
+use Diff\Diff;
 
 class DefaultsTest extends PHPUnit_Framework_TestCase
 {
@@ -14,21 +14,21 @@ class DefaultsTest extends PHPUnit_Framework_TestCase
 
     public function testGetGranularity()
     {
-        $this->assertTrue(is_a($this->diff->getGranularity(), 'cogpowered\FineDiff\Granularity\Character'));
-        $this->assertTrue(is_a($this->diff->getGranularity(), 'cogpowered\FineDiff\Granularity\Granularity'));
-        $this->assertTrue(is_a($this->diff->getGranularity(), 'cogpowered\FineDiff\Granularity\GranularityInterface'));
+        $this->assertTrue(is_a($this->diff->getGranularity(), 'Diff\Granularity\Character'));
+        $this->assertTrue(is_a($this->diff->getGranularity(), 'Diff\Granularity\Granularity'));
+        $this->assertTrue(is_a($this->diff->getGranularity(), 'Diff\Granularity\GranularityInterface'));
     }
 
     public function testGetRenderer()
     {
-        $this->assertTrue(is_a($this->diff->getRenderer(), 'cogpowered\FineDiff\Render\Html'));
-        $this->assertTrue(is_a($this->diff->getRenderer(), 'cogpowered\FineDiff\Render\Renderer'));
-        $this->assertTrue(is_a($this->diff->getRenderer(), 'cogpowered\FineDiff\Render\RendererInterface'));
+        $this->assertTrue(is_a($this->diff->getRenderer(), 'Diff\Render\Html'));
+        $this->assertTrue(is_a($this->diff->getRenderer(), 'Diff\Render\Renderer'));
+        $this->assertTrue(is_a($this->diff->getRenderer(), 'Diff\Render\RendererInterface'));
     }
 
     public function testGetParser()
     {
-        $this->assertTrue(is_a($this->diff->getParser(), 'cogpowered\FineDiff\Parser\Parser'));
-        $this->assertTrue(is_a($this->diff->getParser(), 'cogpowered\FineDiff\Parser\ParserInterface'));
+        $this->assertTrue(is_a($this->diff->getParser(), 'Diff\Parser\Parser'));
+        $this->assertTrue(is_a($this->diff->getParser(), 'Diff\Parser\ParserInterface'));
     }
 }

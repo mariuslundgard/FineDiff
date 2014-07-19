@@ -16,9 +16,9 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Render;
+namespace Diff\Render;
 
-use cogpowered\FineDiff\Parser\OpcodeInterface;
+use Diff\Parser\OpcodeInterface;
 
 class Html extends Renderer
 {

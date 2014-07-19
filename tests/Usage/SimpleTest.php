@@ -2,13 +2,13 @@
 
 namespace FineDiffTests\Usage;
 
-use cogpowered\FineDiff\Diff;
-use cogpowered\FineDiff\Render\Text;
-use cogpowered\FineDiff\Render\Html;
-use cogpowered\FineDiff\Granularity\Character;
-use cogpowered\FineDiff\Granularity\Word;
-use cogpowered\FineDiff\Granularity\Sentence;
-use cogpowered\FineDiff\Granularity\Paragraph;
+use Diff\Diff;
+use Diff\Render\Text;
+use Diff\Render\Html;
+use Diff\Granularity\Character;
+use Diff\Granularity\Word;
+use Diff\Granularity\Sentence;
+use Diff\Granularity\Paragraph;
 
 class SimpleTest extends Base
 {

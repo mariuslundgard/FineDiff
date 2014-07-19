@@ -16,42 +16,42 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser;
+namespace Diff\Parser;
 
-use cogpowered\FineDiff\Granularity\GranularityInterface;
+use Diff\Granularity\GranularityInterface;
 
 interface ParserInterface
 {
     /**
      * Creates an instance.
      *
-     * @param cogpowered\FineDiff\Granularity\GranularityInterface
+     * @param Diff\Granularity\GranularityInterface
      */
     public function __construct(GranularityInterface $granularity);
 
     /**
      * Granularity the parser is working with.
      *
-     * Default is cogpowered\FineDiff\Granularity\Character.
+     * Default is Diff\Granularity\Character.
      *
-     * @see cogpowered\FineDiff\Granularity\Character
-     * @see cogpowered\FineDiff\Granularity\Word
-     * @see cogpowered\FineDiff\Granularity\Sentence
-     * @see cogpowered\FineDiff\Granularity\Paragraph
+     * @see Diff\Granularity\Character
+     * @see Diff\Granularity\Word
+     * @see Diff\Granularity\Sentence
+     * @see Diff\Granularity\Paragraph
      *
-     * @return cogpowered\FineDiff\Granularity\GranularityInterface
+     * @return Diff\Granularity\GranularityInterface
      */
     public function getGranularity();
 
     /**
      * Set the granularity that the parser is working with.
      *
-     * @see cogpowered\FineDiff\Granularity\Character
-     * @see cogpowered\FineDiff\Granularity\Word
-     * @see cogpowered\FineDiff\Granularity\Sentence
-     * @see cogpowered\FineDiff\Granularity\Paragraph
+     * @see Diff\Granularity\Character
+     * @see Diff\Granularity\Word
+     * @see Diff\Granularity\Sentence
+     * @see Diff\Granularity\Paragraph
      *
-     * @param cogpowered\FineDiff\Granularity\GranularityInterface
+     * @param Diff\Granularity\GranularityInterface
      * @return void
      */
     public function setGranularity(GranularityInterface $granularity);
@@ -59,14 +59,14 @@ interface ParserInterface
     /**
      * Get the opcodes object that is used to store all the opcodes.
      *
-     * @return cogpowered\FineDiff\Parser\OpcodesInterface
+     * @return Diff\Parser\OpcodesInterface
      */
     public function getOpcodes();
 
     /**
      * Set the opcodes object used to store all the opcodes for this parse.
      *
-     * @param cogpowered\FineDiff\Parser\OpcodesInterface $opcodes.
+     * @param Diff\Parser\OpcodesInterface $opcodes.
      * @return void
      */
     public function setOpcodes(OpcodesInterface $opcodes);
@@ -76,8 +76,8 @@ interface ParserInterface
      *
      * @param string $from_text
      * @param string $to_text
-     * @throws cogpowered\FineDiff\Exceptions\GranularityCountException
-     * @return cogpowered\FineDiff\Parser\OpcodesInterface
+     * @throws Diff\Exceptions\GranularityCountException
+     * @return Diff\Parser\OpcodesInterface
      */
     public function parse($from_text, $to_text);
 }

@@ -16,7 +16,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser;
+namespace Diff\Parser;
 
 interface OpcodesInterface
 {
@@ -30,8 +30,8 @@ interface OpcodesInterface
     /**
      * Set the opcodes for this parse.
      *
-     * @param array $opcodes Elements must be an instance of cogpowered\FineDiff\Parser\Operations\OperationInterface.
-     * @throws cogpowered\FineDiff\Exceptions\OperationException
+     * @param array $opcodes Elements must be an instance of Diff\Parser\Operations\OperationInterface.
+     * @throws Diff\Exceptions\OperationException
      * @return void
      */
     public function setOpcodes(array $opcodes);

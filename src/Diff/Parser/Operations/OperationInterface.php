@@ -16,27 +16,22 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Granularity;
+namespace Diff\Parser\Operations;
 
-interface GranularityInterface
+interface OperationInterface
 {
-    public function offsetExists($offset);
-    public function offsetGet($offset);
-    public function offsetSet($offset, $value);
-    public function offsetUnset($offset);
+    /**
+     * @return int
+     */
+    public function getFromLen();
 
     /**
-     * Get the delimiters that make up the granularity.
-     *
-     * @return array
+     * @return int
      */
-    public function getDelimiters();
+    public function getToLen();
 
     /**
-     * Set the delimiters that make up the granularity.
-     *
-     * @param array $delimiters
-     * @return void
+     * @return string Opcode for this operation.
      */
-    public function setDelimiters(array $delimiters);
+    public function getOpcode();
 }

@@ -16,18 +16,21 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser\Operations;
+namespace Diff\Parser\Operations;
 
-class Replace implements OperationInterface
+/**
+ * Generates the opcode for a delete operation.
+ */
+class Delete implements OperationInterface
 {
     /**
-     * @param int $fromLen
-     * @param string $text
+     * Set the initial length.
+     *
+     * @param int $len Length of string.
      */
-    public function __construct($fromLen, $text)
+    public function __construct($len)
     {
-        $this->fromLen = $fromLen;
-        $this->text    = $text;
+        $this->fromLen = $len;
     }
 
     /**
@@ -43,17 +46,7 @@ class Replace implements OperationInterface
      */
     public function getToLen()
     {
-        return strlen($this->text);
-    }
-
-    /**
-     * Get the text the operation is working with.
-     *
-     * @return string
-     */
-    public function getText()
-    {
-        return $this->text;
+        return 0;
     }
 
     /**
@@ -62,17 +55,9 @@ class Replace implements OperationInterface
     public function getOpcode()
     {
         if ($this->fromLen === 1) {
-            $del_opcode = 'd';
-        } else {
-            $del_opcode = "d{$this->fromLen}";
+            return 'd';
         }
 
-        $to_len = strlen($this->text);
-
-        if ($to_len === 1) {
-            return "{$del_opcode}i:{$this->text}";
-        }
-
-        return "{$del_opcode}i{$to_len}:{$this->text}";
+        return "d{$this->fromLen}";
     }
 }

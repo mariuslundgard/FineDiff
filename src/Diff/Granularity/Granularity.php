@@ -16,7 +16,7 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Granularity;
+namespace Diff\Granularity;
 
 /**
  * Granularities should extend this class.

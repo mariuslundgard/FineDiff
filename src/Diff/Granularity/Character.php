@@ -16,22 +16,19 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff;
+namespace Diff\Granularity;
+
+use Diff\Delimiters;
 
 /**
- * Used by classes implementing cogpowered\FineDiff\Granularity\GranularityInterface.
- *
- * Class is used more like an Enum type; the class can not be instantiated.
+ * Character level granularity.
  */
-abstract class Delimiters
+class Character extends Granularity
 {
-    const PARAGRAPH = "\n\r";
-    const SENTENCE  = ".\n\r";
-    const WORD      = " \t.\n\r";
-    const CHARACTER = "";
-
-    /**
-     * Do not allow this class to be instantiated.
-     */
-    private function __construct() {}
+    protected $delimiters = array(
+        Delimiters::PARAGRAPH,
+        Delimiters::SENTENCE,
+        Delimiters::WORD,
+        Delimiters::CHARACTER,
+    );
 }

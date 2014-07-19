@@ -1,4 +1,4 @@
-<?php
+Diff<?php
 
 /**
  * FINE granularity DIFF
@@ -16,17 +16,18 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Granularity;
+namespace Diff\Granularity;
 
-use cogpowered\FineDiff\Delimiters;
+use Diff\Delimiters;
 
 /**
- * Sentence level granularity.
+ * Word level granularity.
  */
-class Sentence extends Granularity
+class Word extends Granularity
 {
     protected $delimiters = array(
         Delimiters::PARAGRAPH,
         Delimiters::SENTENCE,
+        Delimiters::WORD,
     );
 }

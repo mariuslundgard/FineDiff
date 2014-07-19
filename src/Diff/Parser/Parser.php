@@ -16,14 +16,14 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser;
+namespace Diff\Parser;
 
-use cogpowered\FineDiff\Granularity\GranularityInterface;
-use cogpowered\FineDiff\Exceptions\GranularityCountException;
-use cogpowered\FineDiff\Parser\Operations\Copy;
-use cogpowered\FineDiff\Parser\Operations\Delete;
-use cogpowered\FineDiff\Parser\Operations\Insert;
-use cogpowered\FineDiff\Parser\Operations\Replace;
+use Diff\Granularity\GranularityInterface;
+use Diff\Exceptions\GranularityCountException;
+use Diff\Parser\Operations\Copy;
+use Diff\Parser\Operations\Delete;
+use Diff\Parser\Operations\Insert;
+use Diff\Parser\Operations\Replace;
 
 /**
  * Generates a set of instructions to convert one string to another.
@@ -31,12 +31,12 @@ use cogpowered\FineDiff\Parser\Operations\Replace;
 class Parser implements ParserInterface
 {
     /**
-     * @var cogpowered\FineDiff\GranularityInterface
+     * @var Diff\GranularityInterface
      */
     protected $granularity;
 
     /**
-     * @var cogpowered\FineDiff\Parser\OpcodesInterface
+     * @var Diff\Parser\OpcodesInterface
      */
     protected $opcodes;
 
@@ -51,7 +51,7 @@ class Parser implements ParserInterface
     protected $from_offset = 0;
 
     /**
-     * @var cogpowered\FineDiff\Operations\OperationInterface
+     * @var Diff\Operations\OperationInterface
      */
     protected $last_edit;
 

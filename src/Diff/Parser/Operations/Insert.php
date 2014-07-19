@@ -16,21 +16,21 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser\Operations;
+namespace Diff\Parser\Operations;
 
 /**
  * Generates the opcode for a copy operation.
  */
-class Copy implements OperationInterface
+class Insert implements OperationInterface
 {
     /**
-     * Set the initial length.
+     * Sets the text that the operation is working with.
      *
-     * @param int $len Length of string.
+     * @param string $text
      */
-    public function __construct($len)
+    public function __construct($text)
     {
-        $this->len = $len;
+        $this->text = $text;
     }
 
     /**
@@ -38,7 +38,7 @@ class Copy implements OperationInterface
      */
     public function getFromLen()
     {
-        return $this->len;
+        return 0;
     }
 
     /**
@@ -46,7 +46,15 @@ class Copy implements OperationInterface
      */
     public function getToLen()
     {
-        return $this->len;
+        return strlen($this->text);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getText()
+    {
+        return $this->text;
     }
 
     /**
@@ -54,21 +62,12 @@ class Copy implements OperationInterface
      */
     public function getOpcode()
     {
-        if ($this->len === 1) {
-            return 'c';
+        $to_len = strlen($this->text);
+
+        if ( $to_len === 1 ) {
+            return "i:{$this->text}";
         }
 
-        return "c{$this->len}";
-    }
-
-    /**
-     * Increase the length of the string.
-     *
-     * @param int $size Amount to increase the string length by.
-     * @return int New length
-     */
-    public function increase($size)
-    {
-        return $this->len += $size;
+        return "i{$to_len}:{$this->text}";
     }
 }

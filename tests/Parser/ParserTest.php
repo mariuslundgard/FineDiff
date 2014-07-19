@@ -4,8 +4,8 @@ namespace FineDiffTests\Parser;
 
 use PHPUnit_Framework_TestCase;
 use Mockery as m;
-use cogpowered\FineDiff\Granularity\Character;
-use cogpowered\FineDiff\Parser\Parser;
+use Diff\Granularity\Character;
+use Diff\Parser\Parser;
 
 class ParserTest extends PHPUnit_Framework_TestCase
 {
@@ -22,18 +22,18 @@ class ParserTest extends PHPUnit_Framework_TestCase
 
     public function testInstanceOf()
     {
-        $this->assertTrue(is_a($this->parser, 'cogpowered\FineDiff\Parser\ParserInterface'));
+        $this->assertTrue(is_a($this->parser, 'Diff\Parser\ParserInterface'));
     }
 
     public function testDefaultOpcodes()
     {
         $opcodes = $this->parser->getOpcodes();
-        $this->assertTrue(is_a($opcodes, 'cogpowered\FineDiff\Parser\OpcodesInterface'));
+        $this->assertTrue(is_a($opcodes, 'Diff\Parser\OpcodesInterface'));
     }
 
     public function testSetOpcodes()
     {
-        $opcodes = m::mock('cogpowered\FineDiff\Parser\Opcodes');
+        $opcodes = m::mock('Diff\Parser\Opcodes');
         $opcodes->shouldReceive('foo')->andReturn('bar');
         $this->parser->setOpcodes($opcodes);
 
@@ -42,11 +42,11 @@ class ParserTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException cogpowered\FineDiff\Exceptions\GranularityCountException
+     * @expectedException Diff\Exceptions\GranularityCountException
      */
     public function testParseBadGranularity()
     {
-        $granularity = m::mock('cogpowered\FineDiff\Granularity\Character');
+        $granularity = m::mock('Diff\Granularity\Character');
         $granularity->shouldReceive('count')->andReturn(0);
         $parser = new Parser($granularity);
 
@@ -55,7 +55,7 @@ class ParserTest extends PHPUnit_Framework_TestCase
 
     public function testParseSetOpcodes()
     {
-        $opcodes = m::mock('cogpowered\FineDiff\Parser\Opcodes');
+        $opcodes = m::mock('Diff\Parser\Opcodes');
         $opcodes->shouldReceive('setOpcodes')->once();
         $this->parser->setOpcodes($opcodes);
 

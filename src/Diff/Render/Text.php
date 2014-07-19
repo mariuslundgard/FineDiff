@@ -16,22 +16,18 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser\Operations;
+namespace Diff\Render;
 
-interface OperationInterface
+use Diff\Parser\OpcodeInterface;
+
+class Text extends Renderer
 {
-    /**
-     * @return int
-     */
-    public function getFromLen();
+    public function callback($opcode, $from, $from_offset, $from_len)
+    {
+        if ($opcode === 'c' || $opcode === 'i') {
+            return substr($from, $from_offset, $from_len);
+        }
 
-    /**
-     * @return int
-     */
-    public function getToLen();
-
-    /**
-     * @return string Opcode for this operation.
-     */
-    public function getOpcode();
+        return '';
+    }
 }

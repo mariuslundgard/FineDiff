@@ -16,9 +16,9 @@
  * @license MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 
-namespace cogpowered\FineDiff\Parser;
+namespace Diff\Parser;
 
-use cogpowered\FineDiff\Exceptions\OperationException;
+use Diff\Exceptions\OperationException;
 
 /**
  * Holds all the opcodes returned by the parser.
@@ -48,7 +48,7 @@ class Opcodes implements OpcodesInterface
         // Ensure that all elements of the array
         // are of the correct type
         foreach ($opcodes as $opcode) {
-            if (!is_a($opcode, 'cogpowered\FineDiff\Parser\Operations\OperationInterface')) {
+            if (!is_a($opcode, 'Diff\Parser\Operations\OperationInterface')) {
                 throw new OperationException('Invalid opcode object');
             }
 
